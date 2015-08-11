@@ -54,6 +54,7 @@ class riak::params {
     'search.solr.port'                  => '8093',
     'search.solr.start_timeout'         => '30s',
     'storage_backend'                   => 'bitcask',
+    'ring_size'                         => '64',
   }
 
   case $::osfamily {
