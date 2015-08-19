@@ -17,5 +17,5 @@ class riak (
   class { '::riak::install':    } ->
   class { '::riak::config':     } ~>
   class { '::riak::service':    } ->
-  Class['Riak']
+  Class['riak']
 }
