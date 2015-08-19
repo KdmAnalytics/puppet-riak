@@ -12,14 +12,10 @@ class riak (
   $ulimits_nofile_hard = $::riak::params::ulimits_nofile_hard,
   $settings            = {},
 ) inherits ::riak::params {
-  if $manage_repo and $manage_package {
-    include ::riak::repository
-  }
-  if $manage_package {
-    include ::riak::install
-    Package[$::riak::package_name] ~> File[$::riak::params::riak_conf]
-  }
-  class { '::riak::config': } ~>
-  class { '::riak::service': } ->
-  Class['::riak']
+
+  class { '::riak::repository': } ->
+  class { '::riak::install':    } ->
+  class { '::riak::config':     } ~>
+  class { '::riak::service':    } ->
+  Class['Riak']
 }
