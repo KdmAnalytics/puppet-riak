@@ -21,5 +21,5 @@ class riak (
   Class ['::riak::repository'] ->
   Class ['::riak::install'] ->
   Class ['::riak::config'] ~>
-  Class ['::riak::service'] ->
+  Class ['::riak::service']
 }
