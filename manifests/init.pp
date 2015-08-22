@@ -13,9 +13,13 @@ class riak (
   $settings            = {},
 ) inherits ::riak::params {
 
-  class { '::riak::repository': } ->
-  class { '::riak::install':    } ->
-  class { '::riak::config':     } ~>
-  class { '::riak::service':    } ->
-  Class['riak']
+  contain '::riak::repository'
+  contain '::riak::install'
+  contain '::riak::config'
+  contain '::riak::service'
+
+  Class ['::riak::repository'] ->
+  Class ['::riak::install'] ->
+  Class ['::riak::config'] ~>
+  Class ['::riak::service'] ->
 }
