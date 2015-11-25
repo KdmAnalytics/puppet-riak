@@ -10,7 +10,8 @@ class riak::repository::debian {
     key        => '418A7F2FB0E1E6E7EABF6FE8C2E73424D59097AB',
     pin        => '550',
     repos      => 'main',
-    release    => $::lsbdistcodename,
+#    release    => $::lsbdistcodename,
+    release    => 'wheezy',
     before     => Package[$::riak::package_name],
     require    => Package['apt-transport-https'],
   }
